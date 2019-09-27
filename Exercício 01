@@ -12,6 +12,14 @@ int IsEmpty (struct node* elemento){
     return 1;
 };
 
+int size(struct node* elemento){
+	int count = 0;
+	while (elemento->next != NULL){
+		count = count + 1;
+	};
+	return count;
+};
+
 int main(void) {
 
   struct node* head = NULL;
