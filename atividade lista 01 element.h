@@ -7,7 +7,7 @@ struct Node {
 
 int isEmpty (struct Node* element);
 int size (struct Node* element);
-void insertElement (struct Node* element, int newData);
+void insertElementEnd (struct Node* headRef, int newData);
 void printList (struct Node* element);
 
 int isEmpty (struct Node* element){
@@ -28,15 +28,25 @@ int size (struct Node* element){
 
 void printList(struct Node* element){
 	while (element->next != NULL){
-		printf ("%d", element->data);
+		printf ("%d\n", element->data);
 		element = element->next;
 	}
 }
 
-void insertElement(struct Node* element, int newData){
-  struct Node* newElement = (struct Node*)malloc(sizeof (struct Node));
-	if (element->next == NULL){
-	 	element->next = newElement;
-		newElement->data = newData;
-	}
+void insertElementEnd (struct Node* headRef, int newData){
+  	struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+  	struct Node* last = headRef;
+  	newNode->data = newData;
+  	newNode->next = NULL;
+  	
+  	if (headRef == NULL){
+  	    headRef = newNode;
+  	    return;
+  	}
+  	
+  	while (last->next != NULL)
+  	    last = last->next;
+  	    
+  	last->next = newNode;
+  	return;
 }
