@@ -13,9 +13,9 @@ void printList (struct Node* element);
 
 int isEmpty (struct Node* element){
   if (element != NULL)
-    return printf("lista não vazia");
+    return printf("lista não vazia\n");
   else 
-    return printf("lista vazia");
+    return printf("lista vazia\n");
 }
 
 int size (struct Node* element){
@@ -28,7 +28,7 @@ int size (struct Node* element){
 }
 
 void printList(struct Node* element){
-	while (element->next != NULL){
+	while (element != NULL){
 		printf ("%d\n", element->data);
 		element = element->next;
 	}
@@ -53,15 +53,17 @@ void insertElementEnd (struct Node* headRef, int newData){
 }
 
 int main(void) {
-  
   struct Node* head = NULL;
 
-  head = (struct Node*)malloc(sizeof (struct Node));
+  isEmpty (head);
+
+  head = (struct Node*)malloc(sizeof (struct Node));  
 
   head->data = 50;
 
   insertElementEnd (head, 30);
   insertElementEnd (head, 500);
+  insertElementEnd (head, 40);
 
   size (head);
 
