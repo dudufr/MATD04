@@ -12,9 +12,9 @@ void printList (struct Node* element);
 
 int isEmpty (struct Node* element){
   if (element != NULL)
-    return printf("lista não vazia");
+    return printf("lista não vazia\n");
   else 
-    return printf("lista vazia");
+    return printf("lista vazia\n");
 }
 
 int size (struct Node* element){
@@ -27,7 +27,7 @@ int size (struct Node* element){
 }
 
 void printList(struct Node* element){
-	while (element->next != NULL){
+	while (element != NULL){
 		printf ("%d\n", element->data);
 		element = element->next;
 	}
