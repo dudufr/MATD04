@@ -18,12 +18,12 @@ int isEmpty (struct Node* element){
 }
 
 int size (struct Node* element){
-  int count = 1;
-	while (element->next != NULL){
+  int count = 0;
+	while (element != NULL){
 		count = count + 1;
 		element = element->next;
 	}
-	return count;
+	return printf("%d\n", count);
 }
 
 void printList(struct Node* element){
@@ -33,7 +33,7 @@ void printList(struct Node* element){
 	}
 }
 
-void insertElementEnd (struct Node* headRef, int newData){
+void insertElementEnd (struct Node** headRef, int newData){
   	struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
   	struct Node* last = headRef;
   	newNode->data = newData;
