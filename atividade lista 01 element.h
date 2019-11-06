@@ -7,7 +7,7 @@ struct Node {
 
 int isEmpty (struct Node* element);
 int size (struct Node* element);
-void insertElementEnd (struct Node* headRef, int newData);
+void insertElementEnd (struct Node** headRef, int newData);
 void printList (struct Node* element);
 
 int isEmpty (struct Node* element){
