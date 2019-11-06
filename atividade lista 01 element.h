@@ -11,6 +11,7 @@ void insertElementEnd (struct Node** headRef, int newData);
 void printList (struct Node* element);
 void push(struct Node** headRef, int newData);
 void deleteNode(struct Node **headRef, int key);
+void deleteNodePosition(struct Node **headRef, int position);
 
 int isEmpty (struct Node* element){
   if (element != NULL)
@@ -68,3 +69,28 @@ void deleteNode(struct Node **headRef, int key){
     free(temp);
     return;
   }
+	
+void deleteNodePosition(struct Node **headRef, int position){
+  if (*headRef == NULL)
+  return;
+
+  struct Node* temp = *headRef;
+
+  if (position == 0){
+    *headRef = temp->next;
+    free(temp);
+    return;
+  }
+
+  for (int i=0; temp != NULL && i<position-1; i++)
+    temp = temp->next;
+
+  if (temp == NULL || temp->next == NULL)
+    return;
+
+  struct Node *next = temp->next->next;
+
+  free(temp->next);
+
+  temp->next = next;
+}
