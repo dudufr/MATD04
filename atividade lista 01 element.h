@@ -9,6 +9,8 @@ int isEmpty (struct Node* element);
 int size (struct Node* element);
 void insertElementEnd (struct Node** headRef, int newData);
 void printList (struct Node* element);
+void push(struct Node** headRef, int newData);
+void deleteNode(struct Node **headRef, int key);
 
 int isEmpty (struct Node* element){
   if (element != NULL)
@@ -50,3 +52,19 @@ void insertElementEnd (struct Node** headRef, int newData){
   	last->next = newNode;
   	return;
 }
+
+void push(struct Node** headRef, int newData){
+  struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+  newNode->data = newData;
+  newNode->next = (*headRef);
+  (*headRef) = newNode;
+}
+
+void deleteNode(struct Node **headRef, int key){
+  struct Node* temp = *headRef, *prev;
+
+  if (temp != NULL && temp->data ==key){
+    *headRef = temp->next;
+    free(temp);
+    return;
+  }
