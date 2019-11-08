@@ -20,7 +20,7 @@ int buscaSequencial(LISTA* l, TIPOCHAVE ch);
 int buscaSentinela(LISTA* l, TIPOCHAVE ch);
 int buscaBinaria(LISTA* l, TIPOCHAVE ch);
 bool inserirElemLista(LISTA* l, REGISTRO reg, int i);
-bool inserirElemListaOrd(LISTA* 1, REGISTRO reg);
+bool inserirElemListaOrd(LISTA* l, REGISTRO reg);
 bool excluirElemLista(TIPOCHAVE ch, LISTA* l);
 void reinicializarLista(LISTA* l);
 
@@ -76,7 +76,7 @@ bool inserirElemLista(LISTA* l, REGISTRO reg, int i){
   return true;
 }
 
-bool inserirElemListaOrd(LISTA* 1, REGISTRO reg){
+bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
     if(l->nroElem >= MAX) return false;
     int pos = l->nroElem;
     while(pos > 0 && l->A[pos-1].chave > reg.chave){
