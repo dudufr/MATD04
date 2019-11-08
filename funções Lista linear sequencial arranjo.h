@@ -107,4 +107,5 @@ int buscaSentinela(LISTA* l, TIPOCHAVE ch){
     while(l->A[i].chave != ch) i++;
     if (l == l->nroElem) return -1;
     else return i;
+  
 }
