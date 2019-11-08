@@ -83,7 +83,7 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
         l->A[pos] = l->A[pos-1];
         pos--;
     }
-    l->A[pos = reg;
+    l->A[pos = reg];
     l->nroElem++;
 }
 
