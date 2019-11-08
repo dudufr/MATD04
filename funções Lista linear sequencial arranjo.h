@@ -17,9 +17,13 @@ void inicializarLista(LISTA* l);
 int tamanho(LISTA* l);
 void exibirLista(LISTA* l);
 int buscaSequencial(LISTA* l, TIPOCHAVE ch);
+int buscaSentinela(LISTA* l, TIPOCHAVE ch);
+int buscaBinaria(LISTA* l, TIPOCHAVE ch);
 bool inserirElemLista(LISTA* l, REGISTRO reg, int i);
+bool inserirElemListaOrd(LISTA* 1, REGISTRO reg);
 bool excluirElemLista(TIPOCHAVE ch, LISTA* l);
 void reinicializarLista(LISTA* l);
+
 
 void inicializarLista(LISTA* l){
   l->nroElem = 0;
@@ -46,6 +50,21 @@ int buscaSequencial(LISTA* l, TIPOCHAVE ch){
   return -1;
 }
 
+int buscaBinaria(LISTA* l, TIPOCHAVE ch){
+  int esq, dir, meio;
+  esq = 0;
+  dir = l->nroElem-1;
+  while(esq<=dir){
+    meio = ((esq + dir) /2);
+    if(l->A[meio].chave == ch) return meio;
+    else{
+      if(l->A[meio].chave < ch) esq = meio + 1;
+      else dir = meio - 1;
+    }
+  }
+  return -1;
+}
+
 bool inserirElemLista(LISTA* l, REGISTRO reg, int i){
   int j;
   if (l->nroElem == MAX || (i < 0) || (i > l->nroElem))
@@ -55,6 +74,17 @@ bool inserirElemLista(LISTA* l, REGISTRO reg, int i){
   l->A[i] = reg;
   l->nroElem++;
   return true;
+}
+
+bool inserirElemListaOrd(LISTA* 1, REGISTRO reg){
+    if(l->nroElem >= MAX) return false;
+    int pos = l->nroElem;
+    while(pos > 0 && l->A[pos-1].chave > reg.chave){
+        l->A[pos] = l->A[pos-1];
+        pos--;
+    }
+    l->A[pos = reg;
+    l->nroElem++;
 }
 
 bool excluirElemLista(TIPOCHAVE ch, LISTA* l){
@@ -70,3 +100,13 @@ bool excluirElemLista(TIPOCHAVE ch, LISTA* l){
 void reinicializarLista(LISTA* l){
   l->nroElem = 0;
 }
+
+int buscaSentinela(LISTA* l, TIPOCHAVE ch){
+    int i = 0;
+    l->A[l->nroElem].chave = ch;
+    while(l->A[i]).chave != ch) i++;
+    if (l == l->nroElem) return -1;
+    else return i;
+}
+
+
