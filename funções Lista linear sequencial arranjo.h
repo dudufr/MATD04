@@ -83,7 +83,7 @@ bool inserirElemListaOrd(LISTA* l, REGISTRO reg){
         l->A[pos] = l->A[pos-1];
         pos--;
     }
-    l->A[pos = reg];
+    l->A[pos = reg.chave];
     l->nroElem++;
 }
 
@@ -104,9 +104,7 @@ void reinicializarLista(LISTA* l){
 int buscaSentinela(LISTA* l, TIPOCHAVE ch){
     int i = 0;
     l->A[l->nroElem].chave = ch;
-    while(l->A[i]).chave != ch) i++;
+    while(l->A[i].chave != ch) i++;
     if (l == l->nroElem) return -1;
     else return i;
 }
-
-
